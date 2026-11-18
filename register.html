@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <section id="formSection">
+        <h1>Registartion Form</h1>
+
+
+        <form id="mainForm">
+
+            <div class="formGroup">
+                <label for="name">Name</label>
+                <input type="text" id="name">
+            </div>
+            <br>
+
+
+            <div class="formGroup">
+                <label for="email">Email</label>
+                <input type="text" id="email">
+            </div>
+            <br>
+
+            <div class="formGroup">
+                <label for="address">Address</label>
+                <input type="text" id="address">
+            </div>
+            <br>
+            <div class="subButton">
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </section>
+
+    <section id="displaySection" hidden>
+
+        <h1>Submitted Details</h1>
+
+
+        <div id="displayGroup">
+            Name: <span id="displayName"></span>
+        </div>
+
+        <div id="displayGroup">
+            Email: <span id="displayEmail"></span>
+        </div>
+
+        <div id="displayGroup">
+            Address: <span id="displayAddress"></span>
+        </div>
+
+    </section>
+
+</body>
+
+<script>
+    const formSection = document.getElementById("formSection");
+    const displaySection = document.getElementById("displaySection");
+    const mainForm = document.getElementById("mainForm")
+
+
+    mainForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+
+        document.getElementById("displayName").textContent = document.getElementById("name").value;
+        document.getElementById("displayEmail").textContent = document.getElementById("email").value;
+        document.getElementById("displayAddress").textContent = document.getElementById("address").value;
+        
+        formSection.hidden = true;
+        displaySection.hidden = false;
+
+    })
+</script>
+
+</html>
